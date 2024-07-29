@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="../css/navigation.css" rel="stylesheet" type="text/css">
+    
+    <link href="../css/home.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <%-include('./static-templates/navbar.ejs') %>
+    <div class="welcome section" id="scroll-background-image">
+        <!-- <div class="background-image" id="scroll-background-image" style="background-image: url('../media/home-page-image.jpg');">
+        </div> -->
+        <div class="welcome-bottom content">
+            <div class="wavey-background" style="padding-inline: 200px;">
+            </div>
+            <div class="text-body">
+                <div style="display: flex; flex-direction: column; justify-content: center; align-items: flex-start; height: 50vh;">
+                    <h1>Bring on the Coffee!</h1>
+                    <h3>Start your day refreshed</h3>
+                </div>
+                <a class="call-to-action" style="z-index: 2;">
+                    <div>
+                        <p>Order</p>
+                    </div>
+                </a>
+            </div> 
+        </div>
+    </div>
+    <div class="branch-info section">
+        <div class="content">
+            <div class="text-body">
+                <h1>Store Locations</h1>
+                <h3>& store opening times</h3>
+            </div>
+            
+            <div class="branches">
+                <!-- This is a branch template -->
+                <div class="branch">
+                    <div class="branch-heading"><h2>Bournemouth</h2></div>
+                    <div class="branch-times">
+                        <!-- 2 Column space between columns -->
+                        <div class="entry">
+                            <p class="day">Monday - Friday</p>
+                            <p class="time">8am - 6pm</p>
+                        </div>
+                        <div class="entry">
+                            <p class="day">Saturday</p>
+                            <p class="time">9am - 6pm</p>
+                        </div>
+                        <div class="entry">
+                            <p class="day">Sunday</p>
+                            <p class="time">10am - 4pm</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="branch">
+                    <div class="branch-heading"><h2>Poole</h2></div>
+                    <div class="branch-times">
+                        <!-- 2 Column space between columns -->
+                        <div class="entry">
+                            <p class="day">Monday - Friday</p>
+                            <p class="time">7am - 5pm</p>
+                        </div>
+                        <div class="entry">
+                            <p class="day">Saturday</p>
+                            <p class="time">8am - 6pm</p>
+                        </div>
+                        <div class="entry">
+                            <p class="day">Sunday</p>
+                            <p class="time">Closed</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="branch">
+                    <div class="branch-heading"><h2>Swanage</h2></div>
+                    <div class="branch-times">
+                        <!-- 2 Column space between columns -->
+                        <div class="entry">
+                            <p class="day">Monday - Friday</p>
+                            <p class="time">9am - 6pm</p>
+                        </div>
+                        <div class="entry">
+                            <p class="day">Saturday</p>
+                            <p class="time">9am - 5pm</p>
+                        </div>
+                        <div class="entry">
+                            <p class="day">Sunday</p>
+                            <p class="time">10am - 3pm</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-body">
+                <p style="margin-bottom: 50px; color: #2B0F0E;">Order now and select your nearest store at checkout</p>
+                <div>
+                    <a class="call-to-action">
+                        <div>
+                            <p>Order</p>
+                        </div>
+                        
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <svg width="0" height="0">
+        <defs>
+            <clipPath id="wavey-clip" clipPathUnits="objectBoundingBox">
+                <path d="M 0,0.25
+                         Q 0.25,0.0 0.5,0.25
+                         T 1,0.25
+                         V 1 
+                         H 0 
+                         Z" />
+            </clipPath>
+        </defs>
+    </svg>
+
+    <script src="../js/background-scroll.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="../css/navigation.css" rel="stylesheet" type="text/css">
+    <link href="../css/popup.css" rel="stylesheet" type="text/css">
+    <link href="../css/message.css" rel="stylesheet" type="text/css">
+    <link href="../css/order.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <%-include('./static-templates/navbar.ejs') %>
+    <div id="messageBoxContainer">
+        <%- include('./static-templates/message.ejs') %>
+    </div>
+    <div class="welcome section" id="scroll-background-image">
+        <!-- <div class="background-image" id="scroll-background-image" style="background-image: url('../media/home-page-image.jpg');">
+        </div> -->
+        <div class="welcome-bottom content">
+            <div class="wavey-background" style="padding-inline: 200px;">
+            </div>
+            <div class="text-body">
+                <div style="display: flex; flex-direction: column; justify-content: center; align-items: flex-start; height: 50vh;">
+                    <h1>Our Menu</h1>
+                    <h3 style="width: 40%;">Whatever your taste, we have enough for everyone</h3>
+                </div>
+                <div class="menu-categories" style="z-index: 2;">
+                    <div class="heading">
+                        <div class="decorative-bar"></div>
+                        <h4>Our Hot & Cold Beverages</h4>
+                        <div class="decorative-bar"></div>
+                    </div>
+                    <div class="categories">
+                        <div class="category" href="#coffee">
+                            <div class="category-image" style="background-image: url(../media/category-coffee-image.png);"></div>
+                            <div class="category-title"><h3>Coffee</h3></div>
+                        </div>
+                        <div class="category" href="#chocolate">
+                            <div class="category-image" style="background-image: url(../media/category-chocolate-image.png);"></div>
+                            <div class="category-title"><h3>Chocolate</h3></div>
+                        </div>
+                        <div class="category" href="#iced coffee">
+                            <div class="category-image" style="background-image: url(../media/category-iced-coffee-image.png);"></div>
+                            <div class="category-title"><h3>Iced Coffee</h3></div>
+                        </div>
+                        <div class="category" href="#frappé">
+                            <div class="category-image" style="background-image: url(../media/category-frappé-image.png);"></div>
+                            <div class="category-title"><h3>Frappé</h3></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <a class="call-to-action" style="z-index: 2;">
+                    <div>
+                        <p>Order</p>
+                    </div>
+                </a> -->
+            </div> 
+        </div>
+    </div>
+
+    <div class="menu" id="product-menu">
+
+
+
+        <!-- <div class="menu-item-category">
+            <div class="item-category-heading">
+                <h3>Coffee</h3>
+            </div>
+            <div class="menu-category-items">
+                <div class="item" data-toggle="modal" data-target="#myModal">
+                    <div class="image" style="background-image: url('../media/category-coffee-image.png');"></div>
+                    <h6 class="title">Americano</h6>
+                    <p class="price">£1.69</p>
+                </div>
+                <div class="item">
+                    <div class="image" style="background-image: url('../media/category-coffee-image.png');"></div>
+                    <h6 class="title">Flat White</h6>
+                    <p class="price">£1.69</p>
+                </div>
+                <div class="item">
+                    <div class="image" style="background-image: url('../media/category-coffee-image.png');"></div>
+                    <h6 class="title">Cappuccino</h6>
+                    <p class="price">£1.69</p>
+                </div>
+                <div class="item">
+                    <div class="image" style="background-image: url('../media/category-coffee-image.png');"></div>
+                    <h6 class="title">Mocha</h6>
+                    <p class="price">£1.69</p>
+                </div>
+                <div class="item">
+                    <div class="image" style="background-image: url('../media/category-coffee-image.png');"></div>
+                    <h6 class="title">Title</h6>
+                    <p class="price">£1.69</p>
+                </div>
+                <div class="item">
+                    <div class="image" style="background-image: url('../media/category-coffee-image.png');"></div>
+                    <h6 class="title">Title</h6>
+                    <p class="price">£1.69</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-item-category">
+            <div class="item-category-heading">
+                <h3>Chocolate</h3>
+            </div>
+            <div class="menu-category-items">
+                <div class="item">
+                    <div class="image" style="background-image: url('../media/category-chocolate-image.png');"></div>
+                    <h6 class="title">Title</h6>
+                    <p class="price">£1.69</p>
+                </div>
+                <div class="item">
+                    <div class="image" style="background-image: url('../media/category-chocolate-image.png');"></div>
+                    <h6 class="title">Title</h6>
+                    <p class="price">£1.69</p>
+                </div>
+                <div class="item">
+                    <div class="image" style="background-image: url('../media/category-chocolate-image.png');"></div>
+                    <h6 class="title">Title</h6>
+                    <p class="price">£1.69</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-item-category">
+            <div class="item-category-heading">
+                <h3>Iced Coffee</h3>
+            </div>
+            <div class="menu-category-items">
+                <div class="item">
+                    <div class="image" style="background-image: url('../media/category-iced-coffee-image.png');"></div>
+                    <h6 class="title">Title</h6>
+                    <p class="price">£1.69</p>
+                </div>
+                <div class="item">
+                    <div class="image" style="background-image: url('../media/category-iced-coffee-image.png');"></div>
+                    <h6 class="title">Title</h6>
+                    <p class="price">£1.69</p>
+                </div>
+                <div class="item">
+                    <div class="image" style="background-image: url('../media/category-iced-coffee-image.png');"></div>
+                    <h6 class="title">Title</h6>
+                    <p class="price">£1.69</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-item-category">
+            <div class="item-category-heading">
+                <h3>Frappé</h3>
+            </div>
+            <div class="menu-category-items">
+                <div class="item">
+                    <div class="image" style="background-image: url('../media/category-frappé-image.png');"></div>
+                    <h6 class="title">Title</h6>
+                    <p class="price">£1.69</p>
+                </div>
+                <div class="item">
+                    <div class="image" style="background-image: url('../media/category-frappé-image.png');"></div>
+                    <h6 class="title">Title</h6>
+                    <p class="price">£1.69</p>
+                </div>
+                <div class="item">
+                    <div class="image" style="background-image: url('../media/category-frappé-image.png');"></div>
+                    <h6 class="title">Title</h6>
+                    <p class="price">£1.69</p>
+                </div>
+            </div>
+        </div> -->
+    </div>
+    <%-include('./static-templates/product-info-popup.ejs') %>
+    <svg width="0" height="0">
+        <defs>
+            <clipPath id="wavey-clip" clipPathUnits="objectBoundingBox">
+                <path d="M 0,0.25
+                         Q 0.25,0.0 0.5,0.25
+                         T 1,0.25
+                         V 1 
+                         H 0 
+                         Z" />
+            </clipPath>
+        </defs>
+    </svg>
+
+    <script src="../js/background-scroll.js"></script>
+    <script src="../js/item-popup-system.js"></script>
+    <script src="../js/message.js"></script>
+    <script src="../js/order-system.js"></script>
+</body>
+</html>

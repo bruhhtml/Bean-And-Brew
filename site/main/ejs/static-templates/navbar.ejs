@@ -1,0 +1,75 @@
+<div id="nav-main" class="nav poppins-black">
+    <div id="nav-content" class="nav">
+        <div id="nav-logo" class="nav-text-button">
+            <div >
+                <h1 >
+                    <a class="nav-link">
+                        <img src="../../media/coffee-beans.svg" alt="Coffee Beans" class="nav-icon">
+                        <h1>Bean & Brew</h1>
+                    </a>
+                    
+                </h1>
+            </div>
+        </div>
+        <div id="navigation-list" class="nav-list">
+            <ul id="list" class="mobile">
+                <a onclick="window.location.href='/'" class="transition-link nav-link">
+                    <h1>home</h1>
+                </a>
+                <a onclick="window.location.href='/order'" class="transition-link nav-link">
+                    <h1>order</h1>
+                </a>
+            </ul>
+            <div class="nav-contact-us nav-text-button nav-link mobile">
+                <div>
+                    <h1>
+                        <a style="position: relative;" onclick="window.location.href='/basket'">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="30"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M253.3 35.1c6.1-11.8 1.5-26.3-10.2-32.4s-26.3-1.5-32.4 10.2L117.6 192H32c-17.7 0-32 14.3-32 32s14.3 32 32 32L83.9 463.5C91 492 116.6 512 146 512H430c29.4 0 55-20 62.1-48.5L544 256c17.7 0 32-14.3 32-32s-14.3-32-32-32H458.4L365.3 12.9C359.2 1.2 344.7-3.4 332.9 2.7s-16.3 20.6-10.2 32.4L404.3 192H171.7L253.3 35.1zM192 304v96c0 8.8-7.2 16-16 16s-16-7.2-16-16V304c0-8.8 7.2-16 16-16s16 7.2 16 16zm96-16c8.8 0 16 7.2 16 16v96c0 8.8-7.2 16-16 16s-16-7.2-16-16V304c0-8.8 7.2-16 16-16zm128 16v96c0 8.8-7.2 16-16 16s-16-7.2-16-16V304c0-8.8 7.2-16 16-16s16 7.2 16 16z"/></svg>
+                        </a>
+                        <div class="basket-size-display">
+                            <p class="basket-size-text"></p>
+                        </div>
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <div class="nav-contact-us nav-text-button nav-link" id="nav-contact-us">
+            <div>
+                <h1>
+                    <a style="position: relative;" onclick="window.location.href='/basket'">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="30"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M253.3 35.1c6.1-11.8 1.5-26.3-10.2-32.4s-26.3-1.5-32.4 10.2L117.6 192H32c-17.7 0-32 14.3-32 32s14.3 32 32 32L83.9 463.5C91 492 116.6 512 146 512H430c29.4 0 55-20 62.1-48.5L544 256c17.7 0 32-14.3 32-32s-14.3-32-32-32H458.4L365.3 12.9C359.2 1.2 344.7-3.4 332.9 2.7s-16.3 20.6-10.2 32.4L404.3 192H171.7L253.3 35.1zM192 304v96c0 8.8-7.2 16-16 16s-16-7.2-16-16V304c0-8.8 7.2-16 16-16s16 7.2 16 16zm96-16c8.8 0 16 7.2 16 16v96c0 8.8-7.2 16-16 16s-16-7.2-16-16V304c0-8.8 7.2-16 16-16zm128 16v96c0 8.8-7.2 16-16 16s-16-7.2-16-16V304c0-8.8 7.2-16 16-16s16 7.2 16 16z"/></svg>
+                    </a>
+                    <div class="basket-size-display">
+                        <p class="basket-size-text"></p>
+                    </div>
+                </h1>
+            </div>
+        </div>
+        <div id="mobile-hamburger" class="nav-button mobile" onclick="mobileNav()">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const mobileList = document.getElementById('navigation-list');
+
+    const x = document.getElementById('mobile-hamburger');
+
+    function mobileNav() {
+        mobileList.classList.toggle("change");
+        x.classList.toggle("change");
+    }
+
+    function closeMobileNav() {
+
+        mobileList.classList.remove("change");
+        x.classList.remove('change')
+
+    }
+
+</script>
+
+<script src="../../js/navigation.js"></script>

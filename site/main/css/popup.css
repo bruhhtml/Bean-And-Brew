@@ -1,0 +1,461 @@
+.product-info-popup {
+
+    width: 100vw;
+
+    height: 100vh;
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    z-index: 21;
+
+    background-color: #752926;
+
+    display: flex;
+
+    flex-direction: row;
+
+    justify-content: space-between;
+
+    transform: translateY(100vh);
+
+    transition: transform 0.4s ease;
+
+}
+
+.product-info-popup.active {
+
+    transform: translateY(0vh);
+
+    transition: transform 0.2s ease;
+
+}
+
+.close-popup {
+
+    position: absolute;
+
+    right: 0;
+
+    top: 0;
+
+    width: 20px;
+
+    height: 20px;
+
+    transform: translateX(-20px) translateY(20px);
+
+    cursor: pointer;
+
+}
+
+.popup-section {
+
+    flex: 1 0 calc(50% - 20px);
+
+    padding: 10px;
+
+}
+
+.product-image {
+
+    background-image: url('../media/category-frappé-image-v2.png');
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    background-size: 70%;
+
+}
+
+.product-information {
+
+    /* height: 100%; */
+
+    overflow: scroll;
+
+    background-color: #F4F4F4;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    position: relative;
+
+}
+
+.product-information .information {
+
+    width: 70%;
+
+}
+
+.product-information .product-title {
+
+    /* width: 100%; */
+
+    color: #2B0F0E;
+
+}
+
+.product-information .product-title h3 {
+
+    font-size: 50px;
+
+    margin: 0;
+
+    width: 100%;
+
+    font-weight: 800;
+
+}
+
+.information h4 {
+
+    font-size: 30px;
+
+    margin-block: 20px;
+    
+    font-weight: 800;
+
+    color: #2B0F0E;
+
+}
+
+.information h5 {
+
+    font-size: 20px;
+
+    margin: 0;
+
+    width: 100%;
+
+    font-weight: 400;
+
+    color: black;
+
+}
+
+.information h6 {
+
+    font-size: 15px;
+
+    margin: 0;
+
+    margin-block: 10px;
+
+    width: 100%;
+
+    font-weight: 400;
+
+    color: black;
+
+}
+
+.product-customisation {
+
+    height: 100%;
+
+    overflow-y: scroll;
+
+}
+
+.customise-options {
+
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: row;
+
+    align-items: flex-end;
+
+    flex-wrap: wrap;
+
+}
+
+.customise-options h5 {
+
+    width: 100%;
+
+}
+
+.customise-options .option {
+
+    flex: 0 0 calc(20% - 15px);
+
+    margin: 10px;
+
+    text-align: center;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    cursor: pointer;
+
+}
+
+.customise-options .option:hover .price {
+
+    filter: drop-shadow(0px 0px 4px #2B0F0E);
+    -webkit-filter: drop-shadow(0px 0px 4px #2B0F0E);
+
+    transition: all 0.2s ease;
+
+}
+
+.customise-options .option.selected .price {
+
+    background-color: #75292600;
+
+    color: #2B0F0E;
+
+    border-radius: 50%;
+
+    width: 50px;
+
+    height: 50px;
+
+    text-align: center;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    position: relative;
+
+    filter: drop-shadow(0px 0px 4px #752926);
+    -webkit-filter: drop-shadow(0px 0px 4px #752926);
+
+    border: 1px solid #752926;
+
+    transition: all 0.4s ease;
+
+}
+
+.customise-options .option .price {
+
+    background-color: #752926;
+
+    color: #F4F4F4;
+
+    border-radius: 50%;
+
+    width: 50px;
+
+    height: 50px;
+
+    text-align: center;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    position: relative;
+
+    filter: drop-shadow(0px 0px 0px #B03D39);
+    -webkit-filter: drop-shadow(0px 0px 0px #B03D39);
+
+    transition: all 0.4s ease;
+
+}
+
+.customise-options .option:nth-child(4n+1) {
+    margin-left: 0; /* Remove left margin for the first item in each row */
+}
+
+.customise-options .option:nth-child(4n) {
+    margin-right: 0; /* Remove right margin for the last item in each row */
+}
+
+.product-order {
+
+    display: flex;
+
+    flex-direction: row;
+
+    justify-content: space-between;
+
+    row-gap: 20px;
+
+    width: 100%;
+
+    align-items: center;
+
+    user-select: none;
+
+}
+
+
+
+.item-order-information {
+
+    width: 40%;
+
+}
+
+.charge {
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+}
+
+.add-to-cart-section {
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content:flex-end;
+
+    row-gap: 20px;
+
+    width: 40%;
+
+    height: 100%;
+
+    align-items: center;
+
+}
+
+.product-order .add-to-cart-section .quantity {
+
+    display: flex;
+
+    flex-direction: row;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    width: 100%;
+
+}
+
+.product-order .add-to-order.call-to-action {
+
+    width: calc(100% - 20px);
+
+    height: 20px;
+
+    padding: 10px;
+
+    margin: 0;
+
+}
+
+.product-order .quantity .icon .call-to-action {
+
+    width: 40px;
+    height: 20px;
+
+    padding: 10px;
+
+    margin: 0;
+
+}
+
+.product-order .add-to-order.call-to-action h2 {
+
+    font-size: 18px;
+
+}
+
+.product-order .quantity .icon.call-to-action:hover svg {
+
+    fill: #752926;
+
+}
+
+.product-order .quantity .icon svg{
+
+    height: 80%;
+
+    fill: #F4F4F4;
+
+}
+
+/*  */
+
+.product-order .add-to-order .call-to-action.maxed {
+
+    width: calc(100% - 20px);
+
+    height: 20px;
+
+    padding: 10px;
+
+    margin: 0;
+
+    background-color: #F4F4F4!important;
+
+}
+
+.product-order .quantity .icon.call-to-action {
+
+    width: 40px;
+    height: 20px;
+
+    padding: 10px;
+
+    margin: 0;
+
+}
+
+.product-order .add-to-order.call-to-action h2 {
+
+    font-size: 18px;
+
+}
+
+.product-order .quantity .icon svg{
+
+    height: 80%;
+
+    fill: #F4F4F4;
+
+}
+
+.product-order .quantity .icon.call-to-action.maxed {
+
+    background-color: #f4f4f4;
+
+    cursor:auto;
+
+}
+
+.product-order .quantity .icon.call-to-action.maxed svg {
+
+    fill: #752926;
+
+}
+
+.product-order .quantity .qtyDisplay p{
+
+    margin: 0;
+
+    font-size: 22px;
+
+    font-weight: 600;
+
+    font-family: sans-serif;
+
+}
+
