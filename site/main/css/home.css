@@ -33,13 +33,6 @@
     padding-inline: 200px;
 
 }
-/* .content:not(.welcome-bottom) {
-
-    background-color: #F4F4F4;
-
-    z-index: 1;
-
-} */
 .welcome .welcome-bottom {
 
     height: 100%;
@@ -48,10 +41,18 @@
 
     filter: brightness(0.8) opacity(0.8) blur(5px);
 
-    /* background-color: #2B0F0E; */
-
     filter: drop-shadow(0 -3px 15px #2B0F0E);
     -webkit-filter: drop-shadow(0 -3px 15px #2B0F0E);
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: flex-end;
+
+    position: absolute;
+
+    bottom: 0;
 
 }
 
@@ -61,12 +62,12 @@
 
     transform: translateX(-200px) translateY(1px);
     
-    height: 50vh;
+    height: 20vh;
     
     background-color: #F4F4F4;
     clip-path: url(#wavey-clip);
     
-    position: absolute;
+    /* position: absolute; */
     bottom: 0;
 
     z-index: -1;
@@ -74,9 +75,13 @@
 
 .welcome .text-body {
 
-    height: 100vh;
+    height: 30vh;
 
     width: calc(100vw - 400px);
+
+    padding-inline: 200px;
+
+    transform: translateX(-200px);
 
     display: flex;
 
@@ -90,13 +95,13 @@
 
     color: #F4F4F4;
 
-    position: absolute;
+    background-color: #F4F4F4;
+
+    /* position: absolute; */
 
     text-align: left;
 
-    bottom: 0;
-
-    /* background-color: red; */
+    /* bottom: 0; */
 
 }
 
@@ -241,9 +246,11 @@
 
         height: 100vh!important;
 
-        background-size: 240%;
+        background-size: 340vw;
 
-        background-position: 20% -20%;
+        /* background-position: 40% calc(-10vh - 10%); */
+
+        background-position: center;
 
     }
 
@@ -282,6 +289,34 @@
         width: 105%;
     
         /* margin-block: 20px; */
+    
+    }
+
+    .branch-info .branches {
+
+        width: 100%;
+    
+        display: flex;
+    
+        flex-direction: column;
+    
+        justify-content: space-between;
+    
+        margin-block: 50px;
+    
+    }
+    
+    .branches .branch {
+    
+        width: 100%;
+    
+        /* border: 1px solid #752926; */
+    
+        display: flex;
+        
+        flex-direction: column;
+    
+        background-color: #FFFEFE;
     
     }
 

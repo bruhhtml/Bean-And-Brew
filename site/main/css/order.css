@@ -16,13 +16,15 @@
 
     background-image: url('../media/order-page-image.jpg');
 
-    background-size: 140%;
+    background-size: 120%;
 
-    background-position: left 00% top 20%;
+    background-position: left 00% top 50%;
 
     background-repeat: no-repeat;
 
     overflow: hidden;
+
+    position: relative;
 
 }
 
@@ -31,23 +33,28 @@
     padding-inline: 200px;
 
 }
-/* .content:not(.welcome-bottom) {
-
-    background-color: #F4F4F4;
-
-    z-index: 1;
-
-} */
 .welcome .welcome-bottom {
 
     height: 100%;
 
     width: 100%;
 
-    /* background-color: #2B0F0E; */
+    filter: brightness(0.8) opacity(0.8) blur(5px);
 
     filter: drop-shadow(0 -3px 15px #2B0F0E);
     -webkit-filter: drop-shadow(0 -3px 15px #2B0F0E);
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: flex-end;
+
+    align-items: center;
+
+    position: absolute;
+
+    bottom: 0;
 
 }
 
@@ -57,12 +64,12 @@
 
     transform: translateX(-200px) translateY(1px);
     
-    height: 50vh;
+    height: 20vh;
     
     background-color: #F4F4F4;
     clip-path: url(#wavey-clip);
     
-    position: absolute;
+    /* position: absolute; */
     bottom: 0;
 
     z-index: -1;
@@ -70,9 +77,13 @@
 
 .welcome .text-body {
 
-    height: 100vh;
+    height: 30vh;
 
     width: calc(100vw - 400px);
+
+    padding-inline: 200px;
+
+    transform: translateX(-200px);
 
     display: flex;
 
@@ -84,15 +95,15 @@
 
     padding-bottom: 5vh;
 
-    color: #2B0F0E;
+    color: #F4F4F4;
 
-    position: absolute;
+    background-color: #F4F4F4;
+
+    /* position: absolute; */
 
     text-align: left;
 
-    bottom: 0;
-
-    /* background-color: red; */
+    /* bottom: 0; */
 
 }
 
@@ -138,11 +149,102 @@
 
 }
 
-.menu {
+.branch-info .text-body h1 {
+
+    font-size: 35px;
+
+    font-weight: 800;
+
+    color: #2B0F0E;
+
+}
+
+.branch-info .text-body h3 {
+
+    font-size: 20px;
+
+    font-weight: 600;
+
+    color: #2B0F0E;
+
+}
+
+.branch-info .content {
 
     width: 100%;
 
-    padding: 200px;
+}
+
+.branch-info .branches {
+
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: row;
+
+    justify-content: space-between;
+
+    margin-block: 50px;
+
+}
+
+.branches .branch {
+
+    width: 32%;
+
+    /* border: 1px solid #752926; */
+
+    display: flex;
+    
+    flex-direction: column;
+
+    background-color: #FFFEFE;
+
+}
+
+.branch .branch-heading {
+
+    text-align: center;
+
+    background-color: #752926;
+
+    color: #F4F4F4;
+
+}
+
+.branch .branch-times .entry {
+
+    display: flex;
+
+    flex-direction: row;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding-inline: 1rem;
+
+    color: #2B0F0E;
+
+}
+
+.day {
+    flex: 1;
+}
+
+.time {
+    flex: 1;
+    text-align: right;
+}
+
+/*  */
+
+.menu {
+
+    width: 90%;
+
+    max-width: 1000px;
 
     display: flex;
 
@@ -182,7 +284,7 @@
 
     flex-direction: row;
 
-    justify-content: space-between;
+    justify-content: center;
 
     align-items: center;
 
@@ -214,9 +316,11 @@
 
     display: flex;
 
+    overflow-x: scroll;
+
     justify-content: space-between;
 
-    align-items: flex-end;
+    /* align-items: flex-end; */
 
 }
 
@@ -293,9 +397,15 @@
 
 .menu-item-category {
 
-    width: 70%;
+    width: 100%;
+
+    max-width: 1000px;
+
+    transform: rotateX(0deg);
 
 }
+
+
 
 
 .menu-item-category .item-category-heading h3 {
@@ -312,6 +422,24 @@
     flex-wrap: wrap;
     justify-content: flex-start; /* Align items to the left */
     align-items: flex-start;
+    
+
+}
+
+.menu-item-category {
+
+    animation: fadeOut 2s forwards;
+
+    animation-delay: 500ms;
+
+    animation-timeline: scroll();
+
+}
+
+@keyframes fadeOut {
+
+    from { transform: rotateX(0deg); }
+    to { transform: rotateX(40deg); }
 
 }
 
@@ -365,5 +493,189 @@
     font-size: 16px;
 
     color: #2B0F0E;
+
+}
+
+@media (max-width: 1025px) {
+
+    .welcome.section {
+
+        margin-top: 64px;
+
+        height: 100vh!important;
+
+        background-size: 340vw;
+
+        /* background-position: 40% calc(-10vh - 10%); */
+
+        background-position: center;
+
+    }
+
+    .welcome .text-body {
+
+        height: 30vh;
+    
+        /* width: calc(100vw - 400px); */
+    
+        width: calc(100% - 40px);
+    
+        /* max-width: 1000px; */
+    
+        /* padding-inline: 200px; */
+    
+        transform: translateX(-40px);
+    
+        display: flex;
+    
+        flex-direction: column;
+    
+        row-gap: 10vh;
+    
+        justify-content: space-evenly;
+    
+        padding-bottom: 5vh;
+    
+        color: #F4F4F4;
+    
+        background-color: #F4F4F4;
+    
+        /* position: absolute; */
+    
+        text-align: left;
+    
+        /* bottom: 0; */
+    
+    }
+
+    .content {
+
+        padding-inline: 20px;
+
+    }
+
+    .welcome .text-body h1 {
+
+        font-size: 40px;
+    
+        font-weight: 800;
+    
+    }
+    
+    .welcome .text-body h3 {
+    
+        font-size: 15px;
+    
+        font-weight: 600;
+    
+    }
+    
+    .text-body h1,
+    .text-body h3,
+    .text-body div:not(.decorative-bar) {
+    
+        width: 105%;
+    
+        /* margin-block: 20px; */
+    
+    }
+
+    .content {
+
+        padding-inline: 40px;
+    
+    }
+
+    .menu-categories {
+
+        color: #2B0F0E;
+    
+        /* background-color: red; */
+    
+        /* width: calc(100% - 40px); */
+    
+        display: flex;
+    
+        flex-direction: column;
+    
+        align-items: center;
+    
+    }
+
+    .menu-categories .category {
+
+        flex: 0 0 calc(50% - 15px);
+
+        margin: 7.5px;
+
+        transform: translateY(-5px);
+    
+        text-align: center;
+    
+        display: flex;
+    
+        flex-direction: column;
+    
+        justify-content: center;
+
+        align-items: center;
+    
+        position: relative;
+    
+        cursor: pointer;
+    
+    }
+
+    .menu-category-items .item {
+
+        text-align: center;
+    
+        flex: 0 0 calc(50% - 15px); /* Adjust to fit 4 items per row with some spacing */
+        margin: 10px; /* Adjust as needed for spacing */
+        box-sizing: border-box;
+    
+        cursor: pointer;
+    
+        transition: transform 0.4s ease;
+    
+        /* background-color: red; */
+    
+    }
+
+    .category-image {
+
+        padding-top: 225px!important;
+
+        background-size: contain!important;
+
+    }
+
+    .menu-categories .categories {
+
+        width: 100%;
+    
+        max-width: 900px;
+
+        /* height: 300px; */
+    
+        display: flex;
+    
+        overflow-x: scroll;
+
+        overflow-y: hidden;
+    
+        justify-content: space-between;
+    
+        align-items: flex-start;
+    
+    }
+
+    .decorative-bar {
+
+        width: 4vw;
+    
+        border: 0.15px solid #2B0F0E;
+        
+    }
 
 }

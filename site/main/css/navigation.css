@@ -9,7 +9,7 @@ html, body {
 
     -ms-overflow-style: none;
 
-    overflow-x:scroll;
+    overflow-x: hidden;
 
     display: flex;
 
@@ -40,10 +40,67 @@ html:has(.product-info-popup.active), body:has(.product-info-popup.active) {over
 
 #nav-content {
     display: flex;
-    justify-content: space-around;
+    position: relative;
+    justify-content: space-between;
     align-items: center;
     height: 30px;
+    margin-inline: 200px;
 }
+
+/* 
+.drop-down-nav {
+
+    position: relative;
+
+}
+
+.drop-down-nav ul {
+
+    position: absolute;
+
+    width: 140%;
+
+    left: -20%;
+
+    top: 0;
+
+    padding-top: 100%;
+
+    padding-left: 0;
+
+    list-style: none;
+
+    
+
+    display: none;
+
+}
+
+.drop-down-nav ul li a {
+
+    width: 100%;
+
+    justify-content: center;
+
+}
+
+.drop-down-nav h1 {
+
+    height: 100%;
+
+}
+
+.drop-down-nav:has(h1:hover), .drop-down-nav:has(ul:hover) {
+
+    display: block;
+
+}
+
+.drop-down-nav:has(h1:hover) ul {
+
+    display: block;
+    
+} */
 
 .nav-link {
     position: relative;
@@ -162,13 +219,31 @@ html:has(.product-info-popup.active), body:has(.product-info-popup.active) {over
     
     }
 
-    .mobile {
+    .mobile:not(#nav-logo) {
 
         display: none;
 
     }
 
-    #navigation-list #list {
+    .nav-list {
+
+        flex: 0 0 33%;
+
+    }
+
+    .nav-list.center-nav #list{
+
+        justify-content: center;
+
+    }
+
+    .nav-list.right-nav #list {
+
+        justify-content: flex-end;
+
+    }
+
+    .nav-list #list {
 
         display: flex;
     
@@ -184,13 +259,57 @@ html:has(.product-info-popup.active), body:has(.product-info-popup.active) {over
     
         margin: 0;
 
-        transform: translateX(-30px);
+        /* transform: translateX(-30px); */
     
     }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+    .dropdown-content {
+        display: none;
+        top: 10px;
+        position: absolute;
+        /* background-color: #f9f9f9; */
+        background-color: transparent;
+        padding: 0.9rem 0.5rem;
+        width: 120%;
+        left: calc(-10% - 0.5rem);
+        /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
+        translate: 0px 21px;
+        z-index: 1;
+      }
+    
+      .dropdown-content .dropdown-item {
+    
+        cursor: pointer;
+    
+        text-align: center;
+    
+        padding: 0;
+    
+        background-color: #752926;
+    
+      }
 
 }
 
 @media (max-width: 1025px) {
+
+    #nav-content {
+
+        margin-inline: 40px;
+
+    }
+
+    #nav-logo {
+
+        height: initial;
+
+        position:initial;
+
+
+    }
 
 
     #nav-main {
@@ -209,6 +328,98 @@ html:has(.product-info-popup.active), body:has(.product-info-popup.active) {over
 
     }
 
+    .nav-list.mobile {
+
+        display: initial;
+
+        flex: 1 0 50%;
+
+        width: 100%;
+
+        
+
+    }
+
+    .nav-list:not(.mobile) {
+
+        display: none;
+
+    }
+
+    .mobile-nav {
+
+        position: absolute;
+
+        top: 47px;
+
+        left: -40px;
+
+        display: flex;
+
+        flex-direction: column;
+
+        justify-content: center;
+
+        align-items: center;
+
+        height: calc(100vh - 47px);
+
+        width: 100vw;
+
+        z-index: 999;
+
+        background-color: #752926;
+
+        translate: -100% 0px;
+
+        transition: 0.2s translate ease;
+
+        transform: translateX(0px);
+
+    }
+
+    .mobile-nav.change {
+
+        translate: 0px 0px;
+
+        transition: 0.2s translate ease;
+
+    }
+
+    .dropdown {
+
+        display: flex;
+
+        flex-direction: column;
+
+    }
+
+    .mobile-nav .nav-list.center-nav {
+
+        display: flex;
+
+        flex-direction: column;
+
+        justify-content: flex-end;
+
+        align-items: center;
+
+        flex: 1 0 calc(50% - 47px)
+
+    }
+
+    .mobile-nav .nav-list.right-nav {
+
+        display: flex;
+
+        flex-direction: column;
+
+        justify-content: flex-start;
+
+        align-items: center;
+
+    }
+
     #nav-content h1, span {
 
         font-family:  "Poppins", sans-serif;
@@ -217,19 +428,25 @@ html:has(.product-info-popup.active), body:has(.product-info-popup.active) {over
     
         font-weight: 900;
 
-        margin: 0;
+        margin-block: 10px;
 
         cursor: pointer;
     
     }
 
-    #navigation-list h1, span {
+    .nav-list h1, span {
 
         font-size: 26px;
 
     }
 
-    #navigation-list {
+    .nav-list ul {
+
+        padding-left: 0;
+
+    }
+/* 
+    .nav-list {
 
         height: 100vh;
 
@@ -263,7 +480,7 @@ html:has(.product-info-popup.active), body:has(.product-info-popup.active) {over
 
     }
 
-    #navigation-list.change {
+    .nav-list.change {
 
         translate: 0px 0px;
 
@@ -271,13 +488,7 @@ html:has(.product-info-popup.active), body:has(.product-info-popup.active) {over
 
     }
 
-    #navigation-list.mobile {
-
-        translate: 0px -125px;
-
-    }
-
-    #navigation-list #list {
+    .nav-list #list {
 
         padding: 0;
 
@@ -295,7 +506,7 @@ html:has(.product-info-popup.active), body:has(.product-info-popup.active) {over
 
         display: none;
 
-    }
+    } */
 
     .nav-button {
         display: inline-block;
