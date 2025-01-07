@@ -1,5 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+:root {
+
+    --blue: #1C244B;
+
+    --transparent-blue: rgba(28, 36, 75, 0.4);
+
+    --turquoise: #21afbb;
+
+    --white: #f4f5f9;
+
+    --pink: #ff0062;
+
+}
+
+#nav-main * {
+
+    color: var(--white);
+
+}
 
 html, body {
 
@@ -19,7 +38,7 @@ html, body {
 
     justify-content: center;
 
-    background-color: #F4F4F4;
+    background-color: var(--blue);
 
 }
 
@@ -139,13 +158,14 @@ html:has(.product-info-popup.active), body:has(.product-info-popup.active) {over
 
 .nav-link:hover h1 {
     /* color: #2B0F0E; */
-    font-weight: 500!important;
+    color: var(--turquoise)!important;
+    /* font-weight: 500!important; */
     transition: all 0.2s ease;
 }
-
+/* 
 .nav-link:hover::after {
     width: 100%;
-}
+} */
 
 .nav-link:hover .nav-icon {
     fill: #2B0F0E;
@@ -158,8 +178,8 @@ html:has(.product-info-popup.active), body:has(.product-info-popup.active) {over
     right: -0.475rem;
     width: 1rem;
     height: 1rem;
-    background-color: #752926;
-    filter: drop-shadow(0px 0px 5px rgba(244, 244, 244, 0.3));
+    background-color: var(--white);
+    outline: 2px solid var(--blue);
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -176,6 +196,7 @@ html:has(.product-info-popup.active), body:has(.product-info-popup.active) {over
     font-size: 0.7rem;
     font-weight: 600;
     font-family: sans-serif;
+    color: var(--blue)!important;
 
 }
 
@@ -197,7 +218,7 @@ html:has(.product-info-popup.active), body:has(.product-info-popup.active) {over
 
         position: fixed;
 
-        background-color: rgbA(117, 41, 38, 0.9);
+        background-color: var(--blue);
 
         backdrop-filter: blur(20px) saturate(1.5) brightness(1.2);
 
@@ -324,7 +345,7 @@ html:has(.product-info-popup.active), body:has(.product-info-popup.active) {over
 
         position: fixed;
 
-        background-color: rgba(117, 41, 38, 1);
+        background-color: var(--blue);
 
     }
 
@@ -368,7 +389,7 @@ html:has(.product-info-popup.active), body:has(.product-info-popup.active) {over
 
         z-index: 999;
 
-        background-color: #752926;
+        background-color: var(--blue);
 
         translate: -100% 0px;
 

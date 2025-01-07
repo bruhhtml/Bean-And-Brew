@@ -1,8 +1,14 @@
+* {
+
+    color: var(--blue);
+
+}
+
 .section {
 
     display: flex;
 
-    height: 100vh;
+    min-height: 100vh;
 
     width: 100vw;
 
@@ -14,17 +20,11 @@
 
     flex-direction: column;
 
-    background-image: url('../media/home-page-image.jpg');
+    justify-content: center;
 
-    background-size: 120%;
+    align-items: center;
 
-    background-position: left 00% top 50%;
-
-    background-repeat: no-repeat;
-
-    overflow: hidden;
-
-    position: relative;
+    height: 90vh;
 
 }
 
@@ -33,29 +33,27 @@
     padding-inline: 200px;
 
 }
-.welcome .welcome-bottom {
+.welcome .content {
 
     height: 100%;
 
     width: 100%;
 
-    filter: brightness(0.8) opacity(0.8) blur(5px);
+    /* filter: brightness(0.8) opacity(0.8) blur(5px); */
 
-    filter: drop-shadow(0 -3px 15px #2B0F0E);
-    -webkit-filter: drop-shadow(0 -3px 15px #2B0F0E);
+    /* filter: drop-shadow(0 -3px 15px #2B0F0E); */
+    /* -webkit-filter: drop-shadow(0 -3px 15px #2B0F0E); */
 
     display: flex;
 
     flex-direction: column;
 
-    justify-content: flex-end;
+    align-items: center;
 
-    position: absolute;
-
-    bottom: 0;
+    justify-content: center;
 
 }
-
+/* 
 .welcome .wavey-background {
 
     width: 100%;
@@ -67,12 +65,11 @@
     background-color: #F4F4F4;
     clip-path: url(#wavey-clip);
     
-    /* position: absolute; */
     bottom: 0;
 
     z-index: -1;
-}
-
+} */
+/* 
 .welcome .text-body {
 
     height: 30vh;
@@ -97,15 +94,22 @@
 
     background-color: #F4F4F4;
 
-    /* position: absolute; */
-
     text-align: left;
 
-    /* bottom: 0; */
+} */
+
+.welcome .text-mask {
+
+    background: url('../media/home-page-image.jpg') -100px -30px / cover no-repeat;
+    background-attachment: fixed;
+    -webkit-text-stroke: 1px var(--blue);
+    color: #de466c;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 
 }
 
-/* .content .text-body {
+.content .text-body {
 
     width: 75%;
 
@@ -121,11 +125,11 @@
 
     z-index: 3;
 
-} */
+}
 
 .welcome .text-body h1 {
 
-    font-size: 50px;
+    font-size: 6em;
 
     font-weight: 800;
 
@@ -133,7 +137,7 @@
 
 .welcome .text-body h3 {
 
-    font-size: 25px;
+    font-size: 3em;
 
     font-weight: 600;
 
@@ -142,8 +146,6 @@
 .text-body h1,
 .text-body h3,
 .text-body div {
-
-    width: 75%;
 
     margin: 0;
 
@@ -155,7 +157,7 @@
 
     font-weight: 800;
 
-    color: #2B0F0E;
+    color: var(--blue);
 
 }
 
@@ -165,7 +167,7 @@
 
     font-weight: 600;
 
-    color: #2B0F0E;
+    color: var(--blue);
 
 }
 

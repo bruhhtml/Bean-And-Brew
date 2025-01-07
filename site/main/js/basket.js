@@ -16,6 +16,25 @@ function removeItemFromBasket(productID) {
     });
 }
 
+async function clearBasket() {
+
+    fetch('/order/basket/clear', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Basket Cleared');
+        updateBasketDisplay();
+    })
+    .catch(error => {
+        console.error('Error clearing basket');
+    });
+
+}
+
 function updateBasketDisplay() {
     fetch('/order/basket')
         .then(response => response.json())
@@ -27,7 +46,14 @@ function updateBasketDisplay() {
             basketIconText.innerHTML = Object.keys(basket).length;
 
             const basketContainer = document.querySelector('.basket-container');
-            basketContainer.innerHTML = '';
+            if (Object.keys(basket).length > 0) {
+                basketContainer.innerHTML = '';
+            } else {
+
+                basketContainer.innerHTML = `<p>Basket is empty</p>`;
+
+            }
+            
 
             let finalTotal = 0;
 
@@ -105,9 +131,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let currentStage = 0;
 
-    let formData = {}; // Object to store form data
+    let formData = {}; 
 
-    // Function to collect data from a stage
+
     function collectData(stageIndex) {
         const inputs = stages[stageIndex].querySelectorAll('input, select');
         inputs.forEach(input => {
@@ -129,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <p><strong>First Name:</strong> ${formData['firstName']}</p>
                     <p><strong>Last Name:</strong> ${formData['lastName']}</p>
                     <p><strong>Email:</strong> ${formData['email']}</p>
-                    <p><strong>Contact Number:</strong> ${formData['contactNumber']}</p>
+                    <p><strong>Contact Number:</strong> ${formData['phone']}</p>
                 </div>
                 <div>
                     ${formData['isDelivery'] ? `
@@ -152,7 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
     }
 
-    document.querySelector('.call-to-action.next').addEventListener('click', function () {
+    document.querySelector('.call-to-action.next').addEventListener('click', async function () {
         if (currentStage < stages.length - 1) {
             collectData(currentStage); // Collect data from the current stage
             stages[currentStage].classList.remove('current');
@@ -164,6 +190,32 @@ document.addEventListener('DOMContentLoaded', () => {
                 populateSummary(); // Populate summary in the last stage
                 next.querySelector('div p').innerHTML = 'Submit';
             }
+        } else {
+            let firstName = document.querySelector("#orderCustomerInfo #firstName");
+            let lastName = document.querySelector("#orderCustomerInfo #lastName");
+            let email = document.querySelector("#orderCustomerInfo #email");
+            let phone = document.querySelector("#orderCustomerInfo #phone");
+
+            const response = await fetch(`/create-order/${firstName.value}/${lastName.value}/${email.value}/${phone.value}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+            });
+
+            if (!response.ok) {
+
+                const errorData = await response.json();
+                errormessage.textContent = errorData.error;
+
+            } else {
+
+                await clearBasket();
+
+                window.location.href = "/account";
+
+            }
+
         }
 
         if (currentStage > 0) {

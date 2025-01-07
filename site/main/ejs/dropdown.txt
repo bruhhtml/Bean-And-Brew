@@ -1,0 +1,16 @@
+<!-- <div class="transition-link nav-link dropdown">
+                    <p style="margin: 0; cursor: pointer;">account</p>
+                    <% if (user) {%>
+                        <div class="dropdown-content">
+                            <p onclick="window.location.href='/signout'" class="dropdown-item">sign out</p>
+                        </div>
+                        
+                    <%} else {%>
+
+                        <div class="dropdown-content">
+                            <p onclick="window.location.href='/signin'" class="dropdown-item">sign in</p>
+                        </div>
+
+                    <%}%>
+                    
+                </div> -->

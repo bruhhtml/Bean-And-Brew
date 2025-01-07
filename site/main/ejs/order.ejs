@@ -16,52 +16,45 @@
         <%- include('./static-templates/message.ejs') %>
     </div>
 
-    <div class="welcome section" id="scroll-background-image">
+    <div class="welcome section">
         <!-- <div class="background-image" id="scroll-background-image" style="background-image: url('../media/home-page-image.jpg');">
         </div> -->
-        <div class="welcome-bottom content">
-            <!-- <div class="text-body" style="background-color: transparent;">
-                <div style="display: flex; flex-direction: column; justify-content: center; align-items: flex-start; height: 50vh;">
-                    <h1>Our Menu</h1>
-                    <h3 style="width: 40%;">Whatever your taste, we have enough for everyone</h3>
-                </div>
-            </div> -->
+        <div class="content">
             <div class="text-body" style="background-color: transparent;">
-                <div style="display: flex; flex-direction: column; justify-content: center; align-items: flex-start; height: 50vh;">
-                    <h1>Bring on the Coffee!</h1>
-                    <h3>Start your day refreshed</h3>
+                <div>
+                    <h1 class="text-mask">Our Menu</h1>
+                    <h3>Drinks. Food. Hampers.</h3>
                 </div>
+                
             </div>
-            <div class="wavey-background" style="padding-inline: 200px;">
-            </div>
-            <div class="text-body">
-                <div class="menu-categories" style="z-index: 2;">
-                    <div class="heading">
-                        <div class="decorative-bar"></div>
-                        <h4>Our Hot & Cold Beverages</h4>
-                        <div class="decorative-bar"></div>
-                    </div>
-                    <div class="categories">
-                        <div class="category" href="#coffee">
-                            <div class="category-image" style="background-image: url(../media/category-coffee-image.png);"></div>
-                            <div class="category-title"><h3>Coffee</h3></div>
-                        </div>
-                        <div class="category" href="#chocolate">
-                            <div class="category-image" style="background-image: url(../media/category-chocolate-image.png);"></div>
-                            <div class="category-title"><h3>Chocolate</h3></div>
-                        </div>
-                        <div class="category" href="#iced coffee">
-                            <div class="category-image" style="background-image: url(../media/category-iced-coffee-image.png);"></div>
-                            <div class="category-title"><h3>Iced Coffee</h3></div>
-                        </div>
-                        <div class="category" href="#frappé">
-                            <div class="category-image" style="background-image: url(../media/category-frappé-image.png);"></div>
-                            <div class="category-title"><h3>Frappé</h3></div>
-                        </div>
-                    </div>
-                </div>
-            </div> 
+            
         </div>
+    </div>
+
+    <div class="menu-categories" style="z-index: 2;">
+        <div class="heading">
+            <div class="decorative-bar"></div>
+            <h4>Our Hot & Cold Beverages</h4>
+            <div class="decorative-bar"></div>
+        </div>
+        <!-- <div class="categories">
+            <div class="category" href="#coffee">
+                <div class="category-image" style="background-image: url(../media/category-coffee-image.png);"></div>
+                <div class="category-title"><h4>Coffee</h4></div>
+            </div>
+            <div class="category" href="#chocolate">
+                <div class="category-image" style="background-image: url(../media/category-chocolate-image.png);"></div>
+                <div class="category-title"><h4>Chocolate</h4></div>
+            </div>
+            <div class="category" href="#iced coffee">
+                <div class="category-image" style="background-image: url(../media/category-iced-coffee-image.png);"></div>
+                <div class="category-title"><h4>Iced Coffee</h4></div>
+            </div>
+            <div class="category" href="#frappé">
+                <div class="category-image" style="background-image: url(../media/category-frappé-image.png);"></div>
+                <div class="category-title"><h4>Frappé</h4></div>
+            </div>
+        </div> -->
     </div>
     
     <!-- <div class="welcome section" id="scroll-background-image">
@@ -79,12 +72,37 @@
 
     <div class="menu" id="product-menu">
 
-
-
+        
         
     </div>
+
+    <!-- <div class="menu-categories" style="z-index: 2;">
+        <div class="heading">
+            <div class="decorative-bar"></div>
+            <h4>Our Fresh Bakery</h4>
+            <div class="decorative-bar"></div>
+        </div>
+        <div class="categories">
+            <div class="category" href="#coffee">
+                <div class="category-image" style="background-image: url(../media/category-coffee-image.png);"></div>
+                <div class="category-title"><h4>Coffee</h4></div>
+            </div>
+            <div class="category" href="#chocolate">
+                <div class="category-image" style="background-image: url(../media/category-chocolate-image.png);"></div>
+                <div class="category-title"><h4>Chocolate</h4></div>
+            </div>
+            <div class="category" href="#iced coffee">
+                <div class="category-image" style="background-image: url(../media/category-iced-coffee-image.png);"></div>
+                <div class="category-title"><h4>Iced Coffee</h4></div>
+            </div>
+            <div class="category" href="#frappé">
+                <div class="category-image" style="background-image: url(../media/category-frappé-image.png);"></div>
+                <div class="category-title"><h4>Frappé</h4></div>
+            </div>
+        </div>
+    </div> -->
     <%-include('./static-templates/product-info-popup.ejs') %>
-    <svg width="0" height="0">
+    <!-- <svg width="0" height="0">
         <defs>
             <clipPath id="wavey-clip" clipPathUnits="objectBoundingBox">
                 <path d="M 0,0.5
@@ -95,9 +113,9 @@
                          Z" />
             </clipPath>
         </defs>
-    </svg>
+    </svg> -->
 
-    <script src="../js/background-scroll.js"></script>
+    <!-- <script src="../js/background-scroll.js"></script> -->
     <script src="../js/item-popup-system.js"></script>
     <script src="../js/message.js"></script>
     <script src="../js/order-system.js"></script>

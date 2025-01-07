@@ -1,0 +1,269 @@
+body {
+
+    padding-top: 64px;
+
+}
+
+.page-content {
+
+    width: 100vw;
+
+    padding-inline: 30px;
+
+    padding-top: 0px;
+
+    display: flex;
+
+    flex: row;
+
+    justify-content: space-between;
+
+    background-color: #fff;
+
+    height: calc(100vh - 60px);
+
+    overflow-y: scroll;
+
+    scrollbar-width: 10px;
+
+}
+
+.sub-menu {
+
+    flex: 1 1 10%;
+
+    min-width: 150px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    border-right: 1px solid #2d2d2d;
+
+    height: 100%;
+
+    position: sticky;
+
+    top: 0;
+
+    /* background-color: blue; */
+
+}
+
+.page-content .content {
+
+    flex: 1 1 calc(80% - 40px);
+
+    padding: 20px;
+
+    /* background-color: aqua; */
+
+}
+
+.sub-menu h2 {
+
+    margin-block: 13px;
+
+    position: relative;
+
+}
+
+.sub-menu h2:after{
+
+    content: "";
+
+    width: 75px;
+
+    position: absolute;
+
+    bottom: -2px;
+
+    left: 0;
+
+    border: 1px solid #ff0062;
+
+}
+
+.sub-menu .smenu-item {
+
+    margin-block: 5px;
+    padding: 10px;
+
+    padding-left: 0;
+
+    text-decoration: none;
+
+    color: var(--blue);
+
+    transition: padding-left 0.2s ease;
+
+}
+
+.sub-menu .smenu-item.active {
+
+    padding-left: 10px;
+
+}
+
+.sub-menu .smenu-item:hover {
+
+    padding-left: 10px;
+
+    cursor: pointer;
+
+}
+
+.sub-menu .smenu-item.active p {
+
+    color: #ff0062;
+
+}
+
+.sub-menu .smenu-item:hover p {
+
+    color: #ff0062;
+
+}
+
+.sub-menu .smenu-item p {
+
+    margin: 0;
+    
+    /* color: #ff0062; */
+
+}
+
+.account-form {
+
+    display: flex;
+
+    background-color: #fff;
+
+    column-gap: 1em;
+
+}
+
+.account-form .divider {
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+}
+
+.cards {
+
+    padding: 10px;
+
+    margin: 10px;
+
+    background-color: #fff;
+
+}
+
+.finishSetup {
+
+    padding: 10px;
+
+    border-radius: 0.5em;
+
+    width: 30%;
+
+    min-width: 400px;
+
+    /* border: 1px solid #ff0062; */
+
+}
+
+.finishSetup input[type="submit"] {
+
+    width: 100%;
+
+}
+
+.fancy-input {
+
+    margin-top: 24px;
+
+}
+
+.fancy-input>input {
+
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: white;
+    position: relative;
+    z-index: 1;
+    height: 52px;
+    padding: 10px 10px 10px;
+    border-radius: 4px !important;
+
+}
+
+.fancy-input {
+
+    position: relative;
+
+}
+
+.fancy-input:after {
+
+    content: " ";
+    position: absolute;
+    width: 98%;
+    border: 1px solid #2d2d2d72;
+    bottom: 0;
+    left: 1%;
+
+    z-index: 2;
+
+}
+
+.personal-info-container ul {
+
+    padding-bottom: 20px;
+
+}
+
+input[type="text"],
+input[type="password"],
+input[type="tel"] {
+
+    transition-duration: 334ms;
+    transition-property: border-color, box-shadow, -webkit-box-shadow;
+    box-shadow: none;
+    border: none;
+    width: 100%;
+    outline: 0;
+    box-sizing: border-box;
+    background-color: #fff;
+
+    
+
+    margin-top: 0em;
+    color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    line-height: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+
+}
+
+.fancy-input:has(input:focus):after {
+
+    border: none;
+
+}
+
+input:focus {
+    -webkit-box-shadow: 0 0 0 1px #ff0062;
+    box-shadow: 0 0 0 1px #ff0062;
+}

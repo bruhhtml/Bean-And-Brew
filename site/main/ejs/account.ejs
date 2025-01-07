@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="../css/account.css" rel="stylesheet" type="text/css">
+    <link href="../css/navigation.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <%-include('./static-templates/navbar.ejs') %>
+    
+    <% if (!user) {%>
+        
+        <div class="account-form">
+
+            <div class="login cards">
+
+                <form>
+
+                    <h2>Log in</h2>
+
+                    <div class="fancy-input">
+                        <input id="email" name="email" aria-describedby="error-for-username" required="" type="text" validation="email" aria-label="Email" placeholder="Email" value="" autofocus="" autocomplete="username webauthn">
+                    </div>
+
+                    <div class="fancy-input">
+                        <input id="password" name="password" type="password" placeholder="Password">
+                    </div>
+
+                    <p class="errormessage"></p>
+
+                    <input type="submit">
+
+                </form>
+
+            </div>
+
+            <div class="divider">
+
+                <p>or</p>
+
+            </div>
+
+            <div class="signup cards">
+
+
+                <form action="">
+
+                    <h2>Register</h2>
+
+                    <div class="fancy-input">
+                        <input id="email" name="email" aria-describedby="error-for-username" required="" type="text" validation="email" aria-label="Email" placeholder="Email" value="" autofocus="" autocomplete="username webauthn">
+                    </div>
+
+                    <div class="fancy-input">
+                        <input id="password" name="password" type="password" placeholder="Password">
+                    </div>
+
+                    <div class="fancy-input">
+                        <input id="confpassword" name="password" type="password" placeholder="Confirm Password">
+                    </div>
+
+                    <p class="errormessage"></p>
+
+                    <input type="submit">
+
+                </form>
+
+            </div>
+
+        </div>
+
+        <script>
+
+            const regiserForm = document.querySelector('.signup.cards form');
+
+            const loginForm = document.querySelector('.login.cards form');
+
+            regiserForm.addEventListener('submit', async (e) => {
+
+                e.preventDefault();
+
+                let email = document.querySelector(".signup.cards #email");
+                let password = document.querySelector(".signup.cards #password");
+                let confpassword = document.querySelector(".signup.cards #confpassword");
+
+                let errormessage = document.querySelector(".signup.cards .errormessage");
+
+                if (password.value !== confpassword.value) {
+                    errormessage.textContent = 'Passwords enetered do not match'
+                } else {
+                    const response = await fetch(`/create-user/${email.value}/${password.value}`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                    });
+
+                    if (!response.ok) {
+
+                        const errorData = await response.json();
+                        errormessage.textContent = errorData.error;
+
+                    }
+                }
+
+            })
+
+            loginForm.addEventListener('submit', async (e) => {
+
+                e.preventDefault();
+
+                let email = document.querySelector(".login.cards #email");
+                let password = document.querySelector(".login.cards #password");
+
+                let errormessage = document.querySelector(".login.cards .errormessage");
+
+                const response = await fetch(`/login-user/${email.value}/${password.value}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                });
+
+                if (!response.ok) {
+
+                    const errorData = await response.json();
+                    errormessage.textContent = errorData.error;
+
+                } else {
+
+                    window.location.href = "/account";
+
+                }
+
+            })
+
+        </script>
+        
+    <%} else {%>
+        <div class="page-content">
+
+            <div class="sub-menu">
+
+                <h2>Account Menu</h2>
+
+                <a href="/account" class="smenu-item <% if (activeTab == 'personalInfo') { %>active<% } %>">
+
+                    <p>Personal Info</p>
+
+                </a>
+
+                <a href="/account/orders" class="smenu-item <% if (activeTab == 'orders') { %>active<% } %>">
+
+                    <p>My Orders</p>
+
+                </a>
+
+                <div class="smenu-item">
+
+                    <p>My Bookings</p>
+
+                </div>
+
+                <div class="smenu-item">
+
+                    <p>My Lessons</p>
+
+                </div>
+
+            </div>
+
+            <div class="content">
+
+                <% if (activeTab == 'personalInfo') { %>
+                
+                    <div class="personal-info-container">
+
+                        <% if (!user.firstName) { %>
+
+                            <form action="" class="finishSetup">
+
+                                <h2>Finish setting up your account</h2>
+
+                                <div class="fancy-input">
+                                    <input id="firstName" name="firstName" type="text" placeholder="First Name">
+                                </div>
+
+                                <div class="fancy-input">
+                                    <input id="lastName" name="lastName" type="text" placeholder="Last Name">
+                                </div>
+
+                                <div class="fancy-input">
+                                    <input id="phone" name="phone" type="tel" placeholder="Phone">
+                                </div>
+            
+                                <p class="errormessage"></p>
+            
+                                <input type="submit" value="Finish">
+            
+                            </form>
+                            <script>
+                                const finishSetup = document.querySelector('.personal-info-container .finishSetup');
+
+                                finishSetup.addEventListener('submit', async (e) => {
+
+                                    e.preventDefault();
+
+                                    let firstName = document.querySelector(".personal-info-container .finishSetup #firstName");
+                                    let lastName = document.querySelector(".personal-info-container .finishSetup #lastName");
+                                    let phone = document.querySelector(".personal-info-container .finishSetup #phone");
+
+                                    let errormessage = document.querySelector(".personal-info-container .finishSetup .errormessage");
+
+                                    const response = await fetch(`/create-user-finish/${firstName.value}/${lastName.value}/${phone.value}`, {
+                                        method: 'POST',
+                                        headers: {
+                                            'Content-Type': 'application/json'
+                                        },
+                                    });
+
+                                    if (!response.ok) {
+
+                                        const errorData = await response.json();
+                                        errormessage.textContent = errorData.error;
+
+                                    }
+
+                                })
+
+                            </script>
+                            
+                        <% } else { %>
+                        
+                            <p>
+                                First Name: 
+                                <%= user.firstName %>
+                              
+                            </p>
+    
+                            <p>
+                                Last Name: 
+                                <%= user.lastName %>
+                              
+                            </p>
+    
+                            <p>
+                                Phone: 
+                                <%= user.phone %>
+                              
+                            </p>
+                        
+                        <% } %>
+
+                        
+                        <p>Email: <%= user.email %></p>
+                        <div><p>Change Password</p></div>
+
+                    </div>
+                
+                <% } else if (activeTab == 'orders') { %>
+
+                    <div class="personal-info-container">
+
+                        <h2 style="margin: 0;">My Orders</h2>
+
+                        <% if (orders && orders.length > 0) { %>
+                            <% orders.reverse().forEach(function(order, index) { %>
+                                <h3>Order <%= orders.length - index %></h3>
+                                <ul>
+                                    <% for (let key in order.basket) { %>
+                                        <% let item = order.basket[key]; %>
+                                        <li>
+                                            <strong><%= item.productName %></strong><br>
+                                            Price: £<%= item.productPrice %> x <%= item.quantity %><br>
+                                            Customizations:
+                                            <ul>
+                                                <% for (let customKey in item.customisations) { %>
+                                                    <% let customisation = item.customisations[customKey]; %>
+                                                    <li><%= customKey %>: <%= customisation.optionName %> 
+                                                        <% if (customisation.price > 0) { %> (£<%= customisation.price %>) <% } %>
+                                                    </li>                                                    
+                                                <% } %>
+                                            </ul>
+                                        </li>
+                                    <% } %>
+                                </ul>
+                            <% }) %>
+                        <% } else { %>
+                            <p>No orders found.</p>
+                        <% } %>
+
+                    </div>
+
+                <% } %>
+
+            </div>
+
+        </div>
+    <%}%>
+</body>
+</html>

@@ -36,12 +36,18 @@
 
         <div id="navigation-list" class="nav-list right-nav">
             <ul id="list" class="">
-                <div class="transition-link nav-link dropdown">
-                    <p style="margin: 0; cursor: pointer;">account</p>
-                    <div class="dropdown-content">
-                        <p onclick="window.location.href='/signout'" class="dropdown-item">sign out</p>
-                    </div>
-                </div>
+                
+
+                <a onclick="window.location.href='/account'" class="transition-link nav-link">
+                    <h1>account</h1>
+                </a>
+
+                <% if (user) { %>
+                    <a onclick="window.location.href='/signout'" class="transition-link nav-link">
+                        <h1>sign out</h1>
+                    </a>
+                <%}%>
+                
                 
                 <div class="nav-contact-us nav-text-button nav-link" id="nav-contact-us">
             

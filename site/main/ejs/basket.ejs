@@ -39,7 +39,7 @@
                     </div>
                     <div class="order-sub-headers"><!--Flex Row-->
                         <p>Total</p>
-                        <p class="total">£10.50</p>
+                        <p class="total">£0.00</p>
                     </div>
                 </div>
             </div>
@@ -57,24 +57,28 @@
                 </div>
                 <div class="details-entry-main">
                     <div class="detail-entry">
-                        <div class="stage current">
+                        <form id="orderCustomerInfo" action="" class="stage current">
                             <div class="did-floating-label-content">
-                                <input class="did-floating-input" type="text" placeholder=" " name="firstName">
+                                <input id="firstName" class="did-floating-input" type="text" placeholder=" " name="firstName" 
+                                <% if (user) { %> value="<%= user.firstName %>" <% } %>>
                                 <label class="did-floating-label">First name</label>
                             </div>
                             <div class="did-floating-label-content">
-                                <input class="did-floating-input" type="text" placeholder=" " name="lastName">
+                                <input id="lastName" class="did-floating-input" type="text" placeholder=" " name="lastName" 
+                                <% if (user) { %> value="<%= user.lastName %>" <% } %>>
                                 <label class="did-floating-label">Last name</label>
                             </div>
                             <div class="did-floating-label-content">
-                                <input class="did-floating-input" type="email" placeholder=" " name="email">
+                                <input id="email" class="did-floating-input" type="email" placeholder=" " name="email" 
+                                <% if (user) { %> value="<%= user.email %>" <% } %>>
                                 <label class="did-floating-label">Email</label>
                             </div>
                             <div class="did-floating-label-content">
-                                <input class="did-floating-input" type="tel" placeholder=" " name="contactNumber">
-                                <label class="did-floating-label">Contact number</label>
+                                <input id="phone" class="did-floating-input" type="tel" placeholder=" " name="phone" 
+                                <% if (user) { %> value="<%= user.phone %>" <% } %>>
+                                <label class="did-floating-label">Phone</label>
                             </div>
-                        </div>
+                        </form>
                         <div class="stage">
                             <div class="did-checkbox-content delivery-question">
                                 <label class="did-checkbox-label">Is this order for delivery?</label>
@@ -154,5 +158,6 @@
     </div>
 
     <script src="../js/basket.js"></script>
+
 </body>
 </html>
