@@ -214,20 +214,6 @@ async function loadProducts() {
         const categories = {};
         const types = {};
 
-        // products.forEach(product => {
-
-        //     if (!types[product.productType]) {
-
-        //         types[product.productType] = [];
-
-        //     }
-
-        //     types[product.productType].push(product);
-
-        // })
-
-        // console.log('Types', types)
-
         products.forEach(product => {
             if (!categories[product.productCategory]) {
 
@@ -238,55 +224,37 @@ async function loadProducts() {
             categories[product.productCategory].push(product);
         });
 
-        console.log('Categories', types)
+        for (const category in categories) {
 
-        // for (const type in types) {
+            const categoryDiv = document.createElement('div');
+            categoryDiv.classList.add('menu-item-category');
+            categoryDiv.setAttribute('id', `menu-${category.toLowerCase()}`)
 
-            // const headline = `
-            //     <div class="menu-categories" style="z-index: 2;">
-            //         <div class="heading">
-            //             <div class="decorative-bar"></div>
-            //             <h4>Our Fresh Bakery</h4>
-            //             <div class="decorative-bar"></div>
-            //         </div>
-            //     </div>
-            // `
+            const categoryHeading = document.createElement('div');
+            categoryHeading.classList.add('item-category-heading');
+            categoryHeading.innerHTML = `<h3>${category}</h3>`;
+            categoryDiv.appendChild(categoryHeading);
 
-            // productMenu.innerHTML += headline;
+            const categoryItems = document.createElement('div');
+            categoryItems.classList.add('menu-category-items');
 
-            for (const category in categories) {
-                // console.log('Current item:', types[type][category])
-                const categoryDiv = document.createElement('div');
-                categoryDiv.classList.add('menu-item-category');
-                categoryDiv.setAttribute('id', `menu-${category.toLowerCase()}`)
-    
-                const categoryHeading = document.createElement('div');
-                categoryHeading.classList.add('item-category-heading');
-                categoryHeading.innerHTML = `<h3>${category}</h3>`;
-                categoryDiv.appendChild(categoryHeading);
-    
-                const categoryItems = document.createElement('div');
-                categoryItems.classList.add('menu-category-items');
-    
-                categories[category].forEach(product => {
-                    const productItem = document.createElement('div');
-                    productItem.classList.add('item');
-                    productItem.innerHTML = `
-                        <div class="image" style="background-image: url('../media/category-${category.toLowerCase().replace(" ", "-")}-image.png');"></div>
-                        <h6 class="title">${product.productName}</h6>
-                        <p class="price">£${product.productPrice.toFixed(2)}</p>
-                    `;
-                    productItem.addEventListener('click', () => {
-                        loadProductInformation(product, category);
-                    });
-                    categoryItems.appendChild(productItem);
+            categories[category].forEach(product => {
+                const productItem = document.createElement('div');
+                productItem.classList.add('item');
+                productItem.innerHTML = `
+                    <div class="image" style="background-image: url('../media/category-${category.toLowerCase().replace(" ", "-")}-image.png');"></div>
+                    <h6 class="title">${product.productName}</h6>
+                    <p class="price">£${product.productPrice.toFixed(2)}</p>
+                `;
+                productItem.addEventListener('click', () => {
+                    loadProductInformation(product, category);
                 });
-    
-                categoryDiv.appendChild(categoryItems);
-                productMenu.appendChild(categoryDiv);
-            }
+                categoryItems.appendChild(productItem);
+            });
 
-        // }
+            categoryDiv.appendChild(categoryItems);
+            productMenu.appendChild(categoryDiv);
+        }
 
         
 

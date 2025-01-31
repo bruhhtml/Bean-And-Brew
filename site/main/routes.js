@@ -18,7 +18,7 @@ function generateItemId(productId, selectedOptions) {
 
 router.get('/account', (req, res) => {
 
-    res.render(path.join(__dirname, 'ejs/account.ejs'), {user: req.session.user ? req.session.user : null, activeTab: 'personalInfo'})
+    res.render(path.join(__dirname, 'public/ejs/account.ejs'), {user: req.session.user ? req.session.user : null, activeTab: 'personalInfo'})
 
 })
 
@@ -26,7 +26,7 @@ router.get('/account/orders', async (req, res) => {
 
     const userOrders = await getOrdersByUserId(req.session.user?.id);
 
-    res.render(path.join(__dirname, 'ejs/account.ejs'), {user: req.session.user ? req.session.user : null, activeTab: 'orders', orders: userOrders || null})
+    res.render(path.join(__dirname, 'public/ejs/account.ejs'), {user: req.session.user ? req.session.user : null, activeTab: 'orders', orders: userOrders || null})
 
 })
 
@@ -128,7 +128,7 @@ router.get('/signout', async (req, res) => {
 
 
 router.get('/', (req, res) => {
-    res.render(path.join(__dirname, 'ejs/home.ejs'), {user: req.session.user ? req.session.user : null});
+    res.render(path.join(__dirname, 'public/ejs/home.ejs'), {user: req.session.user ? req.session.user : null});
 });
 
 router.get('/order', async (req, res) => {
@@ -137,7 +137,7 @@ router.get('/order', async (req, res) => {
         if (!allProducts) {
             return res.status(404).json({ error: "Products not found" });
         }
-        res.render(path.join(__dirname, 'ejs/order.ejs'), { allProducts, user: req.session.user ? req.session.user : null});
+        res.render(path.join(__dirname, 'public/ejs/order.ejs'), { allProducts, user: req.session.user ? req.session.user : null});
     } catch (err) {
         console.error("Error getting products:", err);
         res.status(500).json({ error: "Internal Server Error" });
@@ -145,7 +145,7 @@ router.get('/order', async (req, res) => {
 });
 
 router.get('/basket', (req, res) => {
-    res.render(path.join(__dirname, 'ejs/basket.ejs'), { basket: req.session.basket || {}, user: req.session.user ? req.session.user : null });
+    res.render(path.join(__dirname, 'public/ejs/basket.ejs'), { basket: req.session.basket || {}, user: req.session.user ? req.session.user : null });
 });
 
 router.post('/order/basket/add', (req, res) => {

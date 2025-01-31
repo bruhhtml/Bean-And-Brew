@@ -7,6 +7,7 @@ const { connect, disconnect } = require('./mongooseDB');
 const { createProduct, getAllProducts } = require('./DBFunctions/productsFunctions');
 const routes = require("./routes");
 const mongoose = require('./mongooseDB');
+const path = require('path')
 
 const app = express();
 const server = http.createServer(app);
@@ -14,9 +15,9 @@ const server = http.createServer(app);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
-app.set('views', __dirname);
+app.set('views', path.join(__dirname, 'public'));
 
 app.use(session({
     secret: '$2b$10$6Q4IH9TEmSGaqk2ESDLXO.tA54/bAgDV3XtnPSNZEHbQM7L618pUK',
